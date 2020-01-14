@@ -73,7 +73,5 @@ namespace MovieX.Models
             // Add custom user claims here
             return userIdentity;
         }
-
-        public ICollection<Chat> Chats { get; set; }
     }
 }

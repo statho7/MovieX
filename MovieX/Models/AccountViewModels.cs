@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using MovieX.Models.Enums;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MovieX.Models
@@ -65,6 +67,16 @@ namespace MovieX.Models
     public class RegisterViewModel
     {
         [Required]
+        [MaxLength(255)]
+        [Display(Name = "First name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [MaxLength(255)]
+        [Display(Name = "Last name")]
+        public string LastName { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -79,6 +91,37 @@ namespace MovieX.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        //[MaxLength(255)]
+        [Display(Name = "Date of birth")]
+        public DateTime BirthDate { get; set; }
+
+        [Required]
+        [Display(Name = "Country")]
+        public Country Country { get; set; }
+
+        [Required]
+        [Display(Name = "Gender")]
+        public Gender Gender { get; set; }
+
+        [Required]
+        [Display(Name = "First choice")]
+        public Genre FirstChoice { get; set; }
+
+        [Required]
+        [Display(Name = "Second choice")]
+        public Genre SecondChoice { get; set; }
+
+        [Required]
+        [Display(Name = "Third choice")]
+        public Genre ThirdChoice { get; set; }
+
+        //[Display(Name = "Card Number")]
+        //public string CardNumber { get; set; }
+
+        //[ForeignKey("CardNumber")]
+        //public CreditCard CreditCard { get; set; }
     }
 
     public class ResetPasswordViewModel

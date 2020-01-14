@@ -20,7 +20,26 @@ namespace MovieX.Models
             return new ApplicationDbContext();
         }
         public DbSet<Movie> Movies { get; set; }
-        public DbSet<Chat> Chats { get; set; }
-        public IEnumerable ApplicationUsers { get; internal set; }
+
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
+
+
+
+        //    modelBuilder.Entity<Chat>()
+        //                .HasRequired(m => m.Sender)
+        //                .WithMany(s => s.Chats)
+        //                .HasForeignKey(m => m.SenderId)
+        //                .WillCascadeOnDelete(true);
+
+
+
+        //    modelBuilder.Entity<Chat>()
+        //                .HasRequired(m => m.Receiver)
+        //                .WithMany()
+        //                .HasForeignKey(m => m.ReceiverId)
+        //                .WillCascadeOnDelete(false);
+        //}
     }
 }
