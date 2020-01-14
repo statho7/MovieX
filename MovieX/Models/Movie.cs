@@ -34,7 +34,10 @@ namespace MovieX.Models
 
         public double AverageRating { get; }
 
-        //Its the hyperlink to the actual video's path.
-        public string RootToDb { get; }
+        // Its the hyperlink to the actual video's path.
+        public string RootToDb { get; set; }
+
+        // Its the hyperlink to the image's path.
+        public string ImagePath { get; set; }
     }
 }

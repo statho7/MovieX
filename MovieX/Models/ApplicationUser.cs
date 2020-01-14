@@ -56,14 +56,6 @@ namespace MovieX.Models
         [Required]
         public Genre ThirdChoice { get; set; }
 
-        //public string PaypalUsername { get; set; }
-        ////[Required]
-        //[Display(Name = "Card Number")]
-        //public string CardNumber { get; set; }
-
-        //[ForeignKey("CardNumber")]
-        //public CreditCard CreditCard { get; set; }
-
         //isws me tin dimiourgia na xreiazetai na tou ftiaxnoume kai tin lista pou tha prosthetei tainies.
         public List<Movie> MoviesList = new List<Movie>();
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
@@ -73,5 +65,10 @@ namespace MovieX.Models
             // Add custom user claims here
             return userIdentity;
         }
+        // We save the time the user paid the subscription
+        public DateTime SubDate { get; set; }
+
+        // We save if the user paid the subscription
+        public int IsPaid { get; set; }
     }
 }
