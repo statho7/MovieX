@@ -30,7 +30,8 @@ namespace MovieX.Models
         //    modelBuilder.Entity<Chat>()
         //                .HasRequired(m => m.Sender)
         //                .WithMany(s => s.Chats)
-        //                .HasForeignKey(m => m.SenderId)
+        //                .HasForeignKey(m => m.
+        //)
         //                .WillCascadeOnDelete(true);
 
 
