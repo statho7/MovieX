@@ -397,6 +397,7 @@
     <Content Include="Views\Users\PaymentWithPaypal.cshtml" />
     <Content Include="Views\Users\Success.cshtml" />
     <Content Include="Views\Users\Failure.cshtml" />
+    <Content Include="Views\Home\_partialexample.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
