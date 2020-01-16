@@ -93,7 +93,7 @@ namespace MovieX.Models
         public string ConfirmPassword { get; set; }
 
         [Required]
-        //[MaxLength(255)]
+        [DataType(DataType.Date)]
         [Display(Name = "Date of birth")]
         public DateTime BirthDate { get; set; }
 

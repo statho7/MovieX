@@ -37,7 +37,6 @@ namespace MovieX.Models
         public string Password { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:d/M/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime BirthDate { get; set; }
 
