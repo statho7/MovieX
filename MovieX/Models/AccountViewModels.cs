@@ -92,10 +92,10 @@ namespace MovieX.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        //[Required]
-        //[DisplayFormat(DataFormatString = "{0:d/M/yyyy}", ApplyFormatInEditMode = true)]
-        //[Display(Name = "Date of birth")]
-        //public DateTime BirthDate { get; set; }
+        [Required]
+        [DisplayFormat(DataFormatString = "{0:d/M/yyyy}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Date of birth")]
+        public DateTime? BirthDate { get; set; }
 
         [Required]
         [Display(Name = "Country")]

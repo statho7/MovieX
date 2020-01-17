@@ -202,6 +202,10 @@
     <Compile Include="Migrations\202001170717007_Seed method.Designer.cs">
       <DependentUpon>202001170717007_Seed method.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001170951473_Added DateTime to model again.cs" />
+    <Compile Include="Migrations\202001170951473_Added DateTime to model again.Designer.cs">
+      <DependentUpon>202001170951473_Added DateTime to model again.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -439,6 +443,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001170717007_Seed method.resx">
       <DependentUpon>202001170717007_Seed method.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001170951473_Added DateTime to model again.resx">
+      <DependentUpon>202001170951473_Added DateTime to model again.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -151,8 +151,8 @@ namespace MovieX.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,FirstName=model.FirstName,LastName=model.LastName,Password=model.Password,/*BirthDate=model.BirthDate,*/Gender=model.Gender,
-                                                Country=model.Country,FirstChoice=model.FirstChoice,SecondChoice=model.SecondChoice,ThirdChoice=model.ThirdChoice};
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,FirstName=model.FirstName,LastName=model.LastName,Password=model.Password,
+                    BirthDate = model.BirthDate,Gender =model.Gender,Country=model.Country,FirstChoice=model.FirstChoice,SecondChoice=model.SecondChoice,ThirdChoice=model.ThirdChoice};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 UserManager.AddToRole(user.Id, "User"); 
                 if (result.Succeeded)
