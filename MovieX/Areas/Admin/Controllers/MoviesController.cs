@@ -2,25 +2,26 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MovieX.Models;
 
-namespace MovieX.Controllers
+namespace MovieX.Areas.Admin.Controllers
 {
     public class MoviesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Movies
+        // GET: Admin/Movies
         public ActionResult Index()
         {
             return View(db.Movies.ToList());
         }
 
-        // GET: Movies/Details/5
+        // GET: Admin/Movies/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,19 +36,29 @@ namespace MovieX.Controllers
             return View(movie);
         }
 
-        // GET: Movies/Create
+        // GET: Admin/Movies/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Movies/Create
+        // POST: Admin/Movies/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Description,ReleaseDate,Duration,Genre")] Movie movie)
+        public ActionResult Create(Movie movie)
         {
+            if (movie.ImageFile == null)
+            {
+                movie.Thumbnail = "na_image.jpg";
+            }
+            else
+            {
+                movie.Thumbnail = Path.GetFileName(movie.ImageFile.FileName);
+                string fileName = Path.Combine(Server.MapPath("~/Image/"), movie.Thumbnail);
+                movie.ImageFile.SaveAs(fileName);
+            }
             if (ModelState.IsValid)
             {
                 db.Movies.Add(movie);
@@ -58,7 +69,7 @@ namespace MovieX.Controllers
             return View(movie);
         }
 
-        // GET: Movies/Edit/5
+        // GET: Admin/Movies/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,13 +84,19 @@ namespace MovieX.Controllers
             return View(movie);
         }
 
-        // POST: Movies/Edit/5
+        // POST: Admin/Movies/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Description,ReleaseDate,Duration,Genre")] Movie movie)
+        public ActionResult Edit(Movie movie)
         {
+            if (movie.ImageFile != null)
+            {
+                movie.Thumbnail = Path.GetFileName(movie.ImageFile.FileName);
+                string fileName = Path.Combine(Server.MapPath("~/Image/"), movie.Thumbnail);
+                movie.ImageFile.SaveAs(fileName);
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(movie).State = EntityState.Modified;
@@ -89,7 +106,7 @@ namespace MovieX.Controllers
             return View(movie);
         }
 
-        // GET: Movies/Delete/5
+        // GET: Admin/Movies/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +121,7 @@ namespace MovieX.Controllers
             return View(movie);
         }
 
-        // POST: Movies/Delete/5
+        // POST: Admin/Movies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

@@ -1,0 +1,79 @@
+﻿html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Futura-Medium, "Futura Medium", "Century Gothic", CenturyGothic, "Apple Gothic", AppleGothic, "URW Gothic L", "Avant Garde", sans-serif;
+    
+}
+
+#topNav .col-md-2 {
+    background-color: #367fa9;
+    min-height: 100px;
+}
+
+#topNav .col-md-4 {
+    background-color: #367fa9;
+    min-height: 100px;
+}
+
+#topNav .col-md-10 {
+    min-height: 100px;
+}
+
+#oldcontent {
+    background-color: #3c8dbc;
+    min-height: 100px;
+}
+
+
+.sidebar {
+    background-color: #222d32;
+    min-height: 1100px;
+}
+.sidebar-link {
+    margin: 10px 5px 0px 20px;
+    padding: 0px 0px 5px 0px;
+}
+
+.popover__wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.popover__content {
+    opacity: 0;
+    top:50px;
+    visibility: hidden;
+    position: absolute;
+    right: -125px;
+    transform: translate(0,10px);
+    background-color: #BFBFBF;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    width: auto;
+}
+
+    .popover__content:before {
+        position: absolute;
+        z-index: -1;
+        content: '';
+        right: calc(70% - 10px);
+        top: -8px;
+        border-style: solid;
+        border-width: 0 10px 10px 10px;
+        border-color: transparent transparent #BFBFBF transparent;
+        transition-duration: 0.3s;
+        transition-property: transform;
+    }
+
+.popover__wrapper:hover .popover__content {
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0,-20px);
+    transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+}
+
+.popover__message {
+    text-align: center;
+}

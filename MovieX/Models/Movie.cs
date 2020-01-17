@@ -1,23 +1,25 @@
 ﻿using MovieX.Models.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace MovieX.Models
 {
     public class Movie
     {
 
-        [Key]
+        [Display(Name = "Movie")]
         public int Id { get; set; }
 
-        [Required]
-        [MaxLength(255)]
+        [Display(Name = "Movie")]
         public string Title { get; set; }
 
-        [MaxLength(255)]
+        [AllowHtml]
         public string Description { get; set; }
 
         [DataType(DataType.Date)]
@@ -37,7 +39,10 @@ namespace MovieX.Models
         // Its the hyperlink to the actual video's path.
         public string RootToDb { get; set; }
 
-        // Its the hyperlink to the image's path.
-        public string ImagePath { get; set; }
+        public string Thumbnail { get; set; }
+
+        [DisplayName("Upload File")]
+        [NotMapped]
+        public HttpPostedFileBase ImageFile { get; set; }
     }
 }
