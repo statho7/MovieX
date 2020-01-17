@@ -7,13 +7,13 @@ namespace MovieX.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class InitialMigration : IMigrationMetadata
+    public sealed partial class Dateremoved : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Dateremoved));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001151901207_Initial Migration"; }
+            get { return "202001170706353_Date removed"; }
         }
         
         string IMigrationMetadata.Source

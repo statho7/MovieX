@@ -36,9 +36,12 @@ namespace MovieX.Models
         [MaxLength(255)]
         public string Password { get; set; }
 
-        [Required]
-        [DisplayFormat(DataFormatString = "{0:d/M/yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime BirthDate { get; set; }
+
+        
+        //[Required]
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{0:d/M/yyyy}", ApplyFormatInEditMode = true)]
+        //public DateTime BirthDate { get; set; }
 
         [Required]
         public Country Country { get; set; }
@@ -65,7 +68,7 @@ namespace MovieX.Models
             return userIdentity;
         }
         // We save the time the user paid the subscription
-        public DateTime SubDate { get; set; }
+        public DateTime? SubDate { get; set; }
 
         // We save if the user paid the subscription
         public int IsPaid { get; set; }

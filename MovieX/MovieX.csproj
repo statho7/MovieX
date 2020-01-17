@@ -186,9 +186,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001151901207_Initial Migration.cs" />
-    <Compile Include="Migrations\202001151901207_Initial Migration.Designer.cs">
-      <DependentUpon>202001151901207_Initial Migration.cs</DependentUpon>
+    <Compile Include="Migrations\202001170700458_Initial.cs" />
+    <Compile Include="Migrations\202001170700458_Initial.Designer.cs">
+      <DependentUpon>202001170700458_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001170706353_Date removed.cs" />
+    <Compile Include="Migrations\202001170706353_Date removed.Designer.cs">
+      <DependentUpon>202001170706353_Date removed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001170711251_Change in Datetime.cs" />
+    <Compile Include="Migrations\202001170711251_Change in Datetime.Designer.cs">
+      <DependentUpon>202001170711251_Change in Datetime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001170717007_Seed method.cs" />
+    <Compile Include="Migrations\202001170717007_Seed method.Designer.cs">
+      <DependentUpon>202001170717007_Seed method.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -416,8 +428,17 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001151901207_Initial Migration.resx">
-      <DependentUpon>202001151901207_Initial Migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001170700458_Initial.resx">
+      <DependentUpon>202001170700458_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001170706353_Date removed.resx">
+      <DependentUpon>202001170706353_Date removed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001170711251_Change in Datetime.resx">
+      <DependentUpon>202001170711251_Change in Datetime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001170717007_Seed method.resx">
+      <DependentUpon>202001170717007_Seed method.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
