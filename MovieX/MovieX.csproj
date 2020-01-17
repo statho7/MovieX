@@ -208,6 +208,14 @@
     <Compile Include="Migrations\202001170951473_Added DateTime to model again.Designer.cs">
       <DependentUpon>202001170951473_Added DateTime to model again.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001171722385_Created Areas for Admin.cs" />
+    <Compile Include="Migrations\202001171722385_Created Areas for Admin.Designer.cs">
+      <DependentUpon>202001171722385_Created Areas for Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001171751231_Changed the Edit of Movies.cs" />
+    <Compile Include="Migrations\202001171751231_Changed the Edit of Movies.Designer.cs">
+      <DependentUpon>202001171751231_Changed the Edit of Movies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -296,6 +304,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\granny1.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\mytemplate\.sass-cache\21880c0ffe15753a53f8402e9f64e1077e071510\style.scssc" />
@@ -460,6 +469,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001170951473_Added DateTime to model again.resx">
       <DependentUpon>202001170951473_Added DateTime to model again.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001171722385_Created Areas for Admin.resx">
+      <DependentUpon>202001171722385_Created Areas for Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001171751231_Changed the Edit of Movies.resx">
+      <DependentUpon>202001171751231_Changed the Edit of Movies.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
