@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using PayPal.Api;
 using MovieX.Models.Paypal;
+using System.Globalization;
 
 namespace MovieX.Controllers
 {
@@ -87,7 +88,7 @@ namespace MovieX.Controllers
             listItems.items.Add(new Item()
             {
                 name = "subscription",
-                currency = "USD",
+                currency = "EUR",
                 price = "5.00",
                 quantity = "1",
                 sku = "sku"
@@ -98,23 +99,23 @@ namespace MovieX.Controllers
             //Do the cofiguration RedirectURLs here with redirectUrl object
             var redirUrls = new RedirectUrls()
             {
-                cancel_url = redirectUrl,
+                cancel_url = redirectUrl+"&Cancel=true",
                 return_url = redirectUrl
             };
 
             //Create details object
             var details = new Details()
             {
-                tax = "1",
-                shipping = "2",
+                tax = "1.00",
+                shipping = "2.00",
                 subtotal = "5.00"
             };
 
             //Create amount object
             var amount = new Amount()
             {
-                currency = "USD",
-                total = (Convert.ToDouble(details.tax) + Convert.ToDouble(details.shipping) + Convert.ToDouble(details.subtotal)).ToString(),//tax+shipping+subtotal
+                currency = "EUR",
+                total = (Convert.ToDecimal(details.tax,new CultureInfo("en-US")) + Convert.ToDecimal(details.shipping, new CultureInfo("en-US")) + Convert.ToDecimal(details.subtotal, new CultureInfo("en-US"))).ToString("0.00"),//tax+shipping+subtotal
                 details = details
             };
 
