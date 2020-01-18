@@ -22,9 +22,9 @@ namespace MovieX.Models
         [AllowHtml]
         public string Description { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:d/M/yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime ReleaseDate { get; set; }
+        [Display(Name = "Release Date (Year)")]
+        [Range(1900,2020)]
+        public int ReleaseDate { get; set; }
 
         [Required]
         public int Duration { get; set; }

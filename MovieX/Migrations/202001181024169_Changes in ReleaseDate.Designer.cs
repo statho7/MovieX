@@ -7,13 +7,13 @@ namespace MovieX.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddedDateTimetomodelagain : IMigrationMetadata
+    public sealed partial class ChangesinReleaseDate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedDateTimetomodelagain));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangesinReleaseDate));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001170951473_Added DateTime to model again"; }
+            get { return "202001181024169_Changes in ReleaseDate"; }
         }
         
         string IMigrationMetadata.Source

@@ -163,7 +163,7 @@ namespace MovieX.Controllers
                 if (string.IsNullOrEmpty(payerId))
                 {
                     //Creating payment
-                    string baseURI = Request.Url.Scheme + "://" + Request.Url.Authority + "Users/PaymentWithPaypal?";
+                    string baseURI = Request.Url.Scheme + "://" + Request.Url.Authority + "/Users/PaymentWithPaypal?";
                     var guid = Convert.ToString((new Random()).Next(100000));
                     var createdPayment = CreatePayment(apiContext, baseURI + "guid=" + guid);
 
@@ -193,7 +193,7 @@ namespace MovieX.Controllers
             }
             catch (Exception ex)
             {
-                PaypalLogger.Log("Error: " + ex.Message);
+                //PaypalLogger.Log("Error: " + ex.Message);
                 return View("Failure");
             }
             return View("Success");

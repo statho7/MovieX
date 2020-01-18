@@ -188,33 +188,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001170700458_Initial.cs" />
-    <Compile Include="Migrations\202001170700458_Initial.Designer.cs">
-      <DependentUpon>202001170700458_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001170706353_Date removed.cs" />
-    <Compile Include="Migrations\202001170706353_Date removed.Designer.cs">
-      <DependentUpon>202001170706353_Date removed.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001170711251_Change in Datetime.cs" />
-    <Compile Include="Migrations\202001170711251_Change in Datetime.Designer.cs">
-      <DependentUpon>202001170711251_Change in Datetime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001170717007_Seed method.cs" />
-    <Compile Include="Migrations\202001170717007_Seed method.Designer.cs">
-      <DependentUpon>202001170717007_Seed method.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001170951473_Added DateTime to model again.cs" />
-    <Compile Include="Migrations\202001170951473_Added DateTime to model again.Designer.cs">
-      <DependentUpon>202001170951473_Added DateTime to model again.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001171722385_Created Areas for Admin.cs" />
-    <Compile Include="Migrations\202001171722385_Created Areas for Admin.Designer.cs">
-      <DependentUpon>202001171722385_Created Areas for Admin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001171751231_Changed the Edit of Movies.cs" />
-    <Compile Include="Migrations\202001171751231_Changed the Edit of Movies.Designer.cs">
-      <DependentUpon>202001171751231_Changed the Edit of Movies.cs</DependentUpon>
+    <Compile Include="Migrations\202001181024169_Changes in ReleaseDate.cs" />
+    <Compile Include="Migrations\202001181024169_Changes in ReleaseDate.Designer.cs">
+      <DependentUpon>202001181024169_Changes in ReleaseDate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -455,26 +431,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001170700458_Initial.resx">
-      <DependentUpon>202001170700458_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001170706353_Date removed.resx">
-      <DependentUpon>202001170706353_Date removed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001170711251_Change in Datetime.resx">
-      <DependentUpon>202001170711251_Change in Datetime.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001170717007_Seed method.resx">
-      <DependentUpon>202001170717007_Seed method.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001170951473_Added DateTime to model again.resx">
-      <DependentUpon>202001170951473_Added DateTime to model again.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001171722385_Created Areas for Admin.resx">
-      <DependentUpon>202001171722385_Created Areas for Admin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001171751231_Changed the Edit of Movies.resx">
-      <DependentUpon>202001171751231_Changed the Edit of Movies.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001181024169_Changes in ReleaseDate.resx">
+      <DependentUpon>202001181024169_Changes in ReleaseDate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
