@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MovieX.Models;
+using MovieX.ViewModels;
 
 namespace MovieX.Areas.Admin.Controllers
 {

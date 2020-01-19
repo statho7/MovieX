@@ -99,7 +99,7 @@ namespace MovieX.Controllers
             //Do the cofiguration RedirectURLs here with redirectUrl object
             var redirUrls = new RedirectUrls()
             {
-                cancel_url = redirectUrl+"&Cancel=true",
+                cancel_url = redirectUrl + "&Cancel=true",
                 return_url = redirectUrl
             };
 
@@ -185,7 +185,7 @@ namespace MovieX.Controllers
                 {
                     //This one will be executed when we have received all payment params from previous call
                     var guid = Request.Params["guid"];
-                    var executePayment = ExecutePayment(apiContext, payerId, Session[guid] as string);
+                    var executePayment = ExecutePayment(apiContext, payerId , guid as string /*, Session[guid] as string*/);
                     if (executePayment.state.ToLower() != "approved")
                     {
                         return View("Failure");

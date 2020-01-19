@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MovieX.Models;
+using MovieX.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +10,19 @@ namespace MovieX.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
-            return View();
+
+            var movies = db.Movies.ToList();
+
+            var viewModel = new HomeViewModel
+            {
+                Movies = movies
+            };
+
+            return View(viewModel);
+            //return View();
         }
 
         public ActionResult About()
