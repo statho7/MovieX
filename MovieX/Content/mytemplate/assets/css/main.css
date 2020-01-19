@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 @import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Passion+One:400");
 
@@ -540,12 +540,13 @@
 
 /* Box */
 
-	.box {
-		border-radius: 4px;
-		margin-bottom: 2em;
-		background: #2c2c32;
-		text-align: center;
-	}
+.box {
+	border-radius: 4px;
+	margin-bottom: 2em;
+	background: #2c2c32;
+	text-align: center;
+	
+}
 
 		.box > :last-child,
 		.box > :last-child > :last-child,
@@ -553,12 +554,14 @@
 			margin-bottom: 0;
 		}
 
-		.box .image.fit {
-			margin: 0;
-		}
+	.box .image.fit {
+		margin: 0;
+		pointer-events: none;
+	}
 
 		.box .image img {
 			border-radius: 4px 4px 0 0;
+			
 		}
 
 		.box .inner {
