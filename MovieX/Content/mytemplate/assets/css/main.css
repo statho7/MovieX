@@ -554,10 +554,7 @@
 			margin-bottom: 0;
 		}
 
-	.box .image.fit {
-		margin: 0;
-		pointer-events: none;
-	}
+
 
 		.box .image img {
 			border-radius: 4px 4px 0 0;

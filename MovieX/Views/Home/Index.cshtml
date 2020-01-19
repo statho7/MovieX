@@ -84,7 +84,7 @@
                     foreach (var movie in Model.Movies)
                     {
                         <div class="box">
-                            <a href="/home/movie/@movie.Id" class="image fit"><img src="~/Image/@Url.Content(movie.Thumbnail)" width="450" height="600" /></a>
+                            <a href="/home/movie/@movie.Id" class="image fit" style="pointer-events:none"><img src="~/Image/@Url.Content(movie.Thumbnail)" width="450" height="600" /></a>
                             <div class="inner">
                                 <h3>@Html.Raw(movie.Title)</h3>
                                 <div style="height:150px">
