@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using PayPal.Api;
 using MovieX.Models.Paypal;
+using System.Globalization;
 
 namespace MovieX.Controllers
 {
@@ -98,15 +99,15 @@ namespace MovieX.Controllers
             //Do the cofiguration RedirectURLs here with redirectUrl object
             var redirUrls = new RedirectUrls()
             {
-                cancel_url = redirectUrl,
+                cancel_url = redirectUrl + "&Cancel=true",
                 return_url = redirectUrl
             };
 
             //Create details object
             var details = new Details()
             {
-                tax = "1",
-                shipping = "2",
+                tax = "1.00",
+                shipping = "2.00",
                 subtotal = "5.00"
             };
 
@@ -114,7 +115,7 @@ namespace MovieX.Controllers
             var amount = new Amount()
             {
                 currency = "USD",
-                total = (Convert.ToDouble(details.tax) + Convert.ToDouble(details.shipping) + Convert.ToDouble(details.subtotal)).ToString(),//tax+shipping+subtotal
+                total = (Convert.ToDecimal(details.tax, new CultureInfo("en-US")) + Convert.ToDecimal(details.shipping, new CultureInfo("en-US")) + Convert.ToDecimal(details.subtotal, new CultureInfo("en-US"))).ToString("0.00"),//tax+shipping+subtotal
                 details = details
             };
 
@@ -184,7 +185,7 @@ namespace MovieX.Controllers
                 {
                     //This one will be executed when we have received all payment params from previous call
                     var guid = Request.Params["guid"];
-                    var executePayment = ExecutePayment(apiContext, payerId, Session[guid] as string);
+                    var executePayment = ExecutePayment(apiContext, payerId , guid as string /*, Session[guid] as string*/);
                     if (executePayment.state.ToLower() != "approved")
                     {
                         return View("Failure");
@@ -193,7 +194,7 @@ namespace MovieX.Controllers
             }
             catch (Exception ex)
             {
-                PaypalLogger.Log("Error: " + ex.Message);
+                //PaypalLogger.Log("Error: " + ex.Message);
                 return View("Failure");
             }
             return View("Success");
