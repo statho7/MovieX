@@ -196,6 +196,10 @@
     <Compile Include="Migrations\202001182357429_try index Home.Designer.cs">
       <DependentUpon>202001182357429_try index Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001191136273_Stupid Migration.cs" />
+    <Compile Include="Migrations\202001191136273_Stupid Migration.Designer.cs">
+      <DependentUpon>202001191136273_Stupid Migration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -499,6 +503,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001182357429_try index Home.resx">
       <DependentUpon>202001182357429_try index Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001191136273_Stupid Migration.resx">
+      <DependentUpon>202001191136273_Stupid Migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
