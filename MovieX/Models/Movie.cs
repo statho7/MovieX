@@ -12,6 +12,7 @@ namespace MovieX.Models
 {
     public class Movie
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         [Display(Name = "Movie")]
         public int Id { get; set; }
@@ -44,5 +45,6 @@ namespace MovieX.Models
         [DisplayName("Upload File")]
         [NotMapped]
         public HttpPostedFileBase ImageFile { get; set; }
+        public IEnumerable<Movie> Movies { get; set; }
     }
 }

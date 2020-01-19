@@ -1,4 +1,5 @@
-﻿
+﻿@model MovieX.ViewModels.HomeViewModel
+
 @{
     Layout = null;
 }
@@ -23,9 +24,9 @@
             <img src="~/Content/mytemplate/logosold/logo_transparent.png" width="60" height="60">
         </ul>
         <!-- <a class="navbar-brand" >MovieX</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button> -->
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -74,87 +75,108 @@
 
             <!-- Boxes -->
             <div class="thumbnails">
+                @if (Model.Movies == null)
+                {
+                    <span>no items found</span>
+                }
+                else
+                {
+                    foreach (var movie in Model.Movies)
+                    {
+                        <div class="box">
+                            <a href="/home/movie/@movie.Id" class="image fit"><img src="~/Image/@Url.Content(movie.Thumbnail)" /></a>
+                            <div class="inner">
+                                <h3>@Html.Raw(movie.Title)</h3>
+                                <p>
+                                    @Html.Raw(movie.Description)
+                                </p>
+                                <a href="@Url.Content(movie.RootToDb)" class="button style3 fit"
+                                   data-poptrox="youtube,800x400">Watch</a>
+                            </div>
+                        </div>
+                    }
+                }
 
-                <div class="box">
-                    <iframe width="352" height="352" src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen="true">
-                    </iframe>
-                    @*<a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="https://youtu.be/s6zR2T9vn2c" alt="" /></a>*@
-                    <div class="inner">
-                        <br /><br />
-                        <h3>Nascetur nunc varius commodo</h3>
-                        <p>
-                            Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi
-                            accumsan.
-                        </p>
-                        @*<a href="https://youtu.be/s6zR2T9vn2c" class="button fit" data-poptrox="youtube,800x400">Watch</a>*@
-                    </div>
-                </div>
+                @*<div class="box">
+            <iframe width="352" height="352" src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen="true">
+            </iframe>
+            <a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="https://youtu.be/s6zR2T9vn2c" alt="" /></a>
+            <div class="inner">
+                <br /><br />
+                <h3>Nascetur nunc varius commodo</h3>
+                <p>
+                    Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi
+                    accumsan.
+                </p>
+                <a href="https://youtu.be/s6zR2T9vn2c" class="button fit" data-poptrox="youtube,800x400">Watch</a>
+            </div>
+        </div>
 
-                <div class="box">
-                    <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen="true">
-                    </iframe>
-                    @*<a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="images/pic02.jpg" alt="" /></a>*@
-                    <div class="inner">
-                        <h3>Nascetur nunc varius commodo</h3>
-                        <p>
-                            Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi
-                            accumsan.
-                        </p>
-                        <a href="https://youtu.be/s6zR2T9vn2c" class="button style2 fit"
-                           data-poptrox="youtube,800x400">Watch</a>
-                    </div>
-                </div>
+        <div class="box">
+            <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen="true">
+            </iframe>
+            <a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
+            <div class="inner">
+                <h3>Nascetur nunc varius commodo</h3>
+                <p>
+                    Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi
+                    accumsan.
+                </p>
+                <a href="https://youtu.be/s6zR2T9vn2c" class="button style2 fit"
+                   data-poptrox="youtube,800x400">Watch</a>
+            </div>
+        </div>
 
-                <div class="box">
-                    <a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
-                    <div class="inner">
-                        <h3>Nascetur nunc varius commodo</h3>
-                        <p>
-                            Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi
-                            accumsan.
-                        </p>
-                        <a href="https://youtu.be/s6zR2T9vn2c" class="button style3 fit"
-                           data-poptrox="youtube,800x400">Watch</a>
-                    </div>
-                </div>
+        <div class="box">
+            <a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
+            <div class="inner">
+                <h3>Nascetur nunc varius commodo</h3>
+                <p>
+                    Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi
+                    accumsan.
+                </p>
+                <a href="https://youtu.be/s6zR2T9vn2c" class="button style3 fit"
+                   data-poptrox="youtube,800x400">Watch</a>
+            </div>
+        </div>
 
-                <div class="box">
-                    <a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
-                    <div class="inner">
-                        <h3>Nascetur nunc varius commodo</h3>
-                        <p>
-                            Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi
-                            accumsan.
-                        </p>
-                        <a href="https://youtu.be/s6zR2T9vn2c" class="button style2 fit"
-                           data-poptrox="youtube,800x400">Watch</a>
-                    </div>
-                </div>
+        <div class="box">
+            <a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
+            <div class="inner">
+                <h3>Nascetur nunc varius commodo</h3>
+                <p>
+                    Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi
+                    accumsan.
+                </p>
+                <a href="https://youtu.be/s6zR2T9vn2c" class="button style2 fit"
+                   data-poptrox="youtube,800x400">Watch</a>
+            </div>
+        </div>
 
-                <div class="box">
-                    <a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
-                    <div class="inner">
-                        <h3>Nascetur nunc varius commodo</h3>
-                        <p>
-                            Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi
-                            accumsan.
-                        </p>
-                        <a href="https://youtu.be/s6zR2T9vn2c" class="button style3 fit"
-                           data-poptrox="youtube,800x400">Watch</a>
-                    </div>
-                </div>
+        <div class="box">
+            <a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
+            <div class="inner">
+                <h3>Nascetur nunc varius commodo</h3>
+                <p>
+                    Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi
+                    accumsan.
+                </p>
+                <a href="https://youtu.be/s6zR2T9vn2c" class="button style3 fit"
+                   data-poptrox="youtube,800x400">Watch</a>
+            </div>
+        </div>
 
-                <div class="box">
-                    <a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
-                    <div class="inner">
-                        <h3>Nascetur nunc varius commodo</h3>
-                        <p>
-                            Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi
-                            accumsan.
-                        </p>
-                        <a href="https://youtu.be/s6zR2T9vn2c" class="button fit" data-poptrox="youtube,800x400">Watch</a>
-                    </div>
-                </div>
+        <div class="box">
+            <a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
+            <div class="inner">
+                <h3>Nascetur nunc varius commodo</h3>
+                <p>
+                    Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi
+                    accumsan.
+                </p>
+                <a href="https://youtu.be/s6zR2T9vn2c" class="button fit" data-poptrox="youtube,800x400">Watch</a>
+            </div>
+        </div>*@
 
             </div>
 

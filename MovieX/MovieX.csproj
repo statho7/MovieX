@@ -216,6 +216,10 @@
     <Compile Include="Migrations\202001171751231_Changed the Edit of Movies.Designer.cs">
       <DependentUpon>202001171751231_Changed the Edit of Movies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001182357429_try index Home.cs" />
+    <Compile Include="Migrations\202001182357429_try index Home.Designer.cs">
+      <DependentUpon>202001182357429_try index Home.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -232,6 +236,8 @@
     <Compile Include="Models\Repositories\MoviesReporitory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="ViewModels\SingleMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -304,7 +310,64 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Image\granny1.jpg" />
+    <Content Include="Image\Akira.jpg" />
+    <Content Include="Image\All That Jazz.jpg" />
+    <Content Include="Image\Apollo_11.jpg" />
+    <Content Include="Image\BeforeSunrise.jpg" />
+    <Content Include="Image\Ben_Hur.jpg" />
+    <Content Include="Image\Blackfish.jpg" />
+    <Content Include="Image\Carol.jpg" />
+    <Content Include="Image\casablanca.jpg" />
+    <Content Include="Image\Deadpool.jpg" />
+    <Content Include="Image\diehard.jpg" />
+    <Content Include="Image\Donnie Darko.jpg" />
+    <Content Include="Image\Dunkirk.jpg" />
+    <Content Include="Image\Finding_Nemo.jpg" />
+    <Content Include="Image\Funny_People.jpg" />
+    <Content Include="Image\Get_out.jpg" />
+    <Content Include="Image\goodboys.jpg" />
+    <Content Include="Image\Grand_Budapest_Hotel.jpg" />
+    <Content Include="Image\Gravity.jpg" />
+    <Content Include="Image\Guardians_of_the_galaxy.jpg" />
+    <Content Include="Image\Happy as Lazzaro.jpg" />
+    <Content Include="Image\her.jpg" />
+    <Content Include="Image\Home Alone.jpg" />
+    <Content Include="Image\invisibleguest.jpg" />
+    <Content Include="Image\johnwick.jpg" />
+    <Content Include="Image\Logan.jpg" />
+    <Content Include="Image\Louis C.K. Shameless.jpg" />
+    <Content Include="Image\milliondollarbaby.jpg" />
+    <Content Include="Image\Moneyball.jpg" />
+    <Content Include="Image\na_image.jpg" />
+    <Content Include="Image\planetearth2.jpg" />
+    <Content Include="Image\Ratatouille.jpg" />
+    <Content Include="Image\reservoirdogs.jpg" />
+    <Content Include="Image\Rocketman.jpg" />
+    <Content Include="Image\Rocky.jpg" />
+    <Content Include="Image\schindlerslist.jpg" />
+    <Content Include="Image\seven.jpg" />
+    <Content Include="Image\Shutter Island.jpg" />
+    <Content Include="Image\spidenmanintothespiderverse.jpg" />
+    <Content Include="Image\starwarsriseofskywalker.jpg" />
+    <Content Include="Image\Terminator_Dark_Fate.jpg" />
+    <Content Include="Image\The Evil Dead.jpg" />
+    <Content Include="Image\The Matrix.jpg" />
+    <Content Include="Image\The Shawshank Redemption.jpg" />
+    <Content Include="Image\thedarkknight.jpg" />
+    <Content Include="Image\thewailing.jpg" />
+    <Content Include="Image\The_Babadook.jpg" />
+    <Content Include="Image\The_Exception.jpg" />
+    <Content Include="Image\The_Godfather.jpg" />
+    <Content Include="Image\The_Grinch.jpg" />
+    <Content Include="Image\The_Irishman.jpg" />
+    <Content Include="Image\The_Lion_King.jpg" />
+    <Content Include="Image\The_Martian.jpg" />
+    <Content Include="Image\The_Phantom_of_the_Opera.jpg" />
+    <Content Include="Image\The_Pulp_Fiction.jpg" />
+    <Content Include="Image\titanic.jpg" />
+    <Content Include="Image\tracymorgan.jpg" />
+    <Content Include="Image\walle.jpg" />
+    <Content Include="Image\wizardfooz.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\mytemplate\.sass-cache\21880c0ffe15753a53f8402e9f64e1077e071510\style.scssc" />
@@ -475,6 +538,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001171751231_Changed the Edit of Movies.resx">
       <DependentUpon>202001171751231_Changed the Edit of Movies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001182357429_try index Home.resx">
+      <DependentUpon>202001182357429_try index Home.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
