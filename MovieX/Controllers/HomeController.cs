@@ -5,20 +5,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace MovieX.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationUserManager _userManager;
         private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
 
             var movies = db.Movies.ToList();
 
+
+            bool paid = false;
+
+            if(User.Identity.IsAuthenticated)
+            {
+                var userId = User.Identity.GetUserId();
+                paid = UserManager.Users.SingleOrDefault(i => i.Id == userId).IsPaid == 1;
+            }
+
             var viewModel = new HomeViewModel
             {
-                Movies = movies
+                Movies = movies,
+                UserPaid = paid
             };
 
             return View(viewModel);
@@ -41,6 +54,29 @@ namespace MovieX.Controllers
         public ActionResult Chat()
         {
             return View();
+        }
+
+
+
+        public HomeController()
+        {
+
+        }
+        public HomeController(ApplicationUserManager userManager)
+        {
+            UserManager = userManager;
+        }
+
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
         }
     }
 }
