@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using PayPal.Api;
 using MovieX.Models.Paypal;
 using System.Globalization;
+using Microsoft.AspNet.Identity;
 
 namespace MovieX.Controllers
 {
@@ -198,6 +199,12 @@ namespace MovieX.Controllers
                 //PaypalLogger.Log("Error: " + ex.Message);
                 return View("Failure");
             }
+            string loggedInUser = User.Identity.GetUserId();
+            var userFound = db.Users.Find(loggedInUser);
+            //Set his payment as true and the exact time he paid.
+            userFound.IsPaid = 1;
+            userFound.SubDate = DateTime.UtcNow;
+            db.SaveChanges();
             return View("Success");
         }
     }
