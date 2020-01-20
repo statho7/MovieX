@@ -39,7 +39,6 @@ namespace MovieX.Models.Repositories
             using (var db = new ApplicationDbContext())
             {
                 movies = db.Movies
-                    .Include("Title")
                     .Where(movie => movie.Title.Contains(searchTerm)).ToList();
             }
             return movies;

@@ -1,7 +1,7 @@
 ﻿@model MovieX.ViewModels.HomeViewModel
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE HTML>
@@ -12,43 +12,12 @@
     <title>MovieX</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="~/content/mytemplate/assets/css/main.css" />
+    @*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/content/mytemplate/assets/css/main.css" />*@
 
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <link rel="icon" type="image/png" href="~/Content/mytemplate/logosold/favicon.png">
-        <ul class="navbar-brand" style="margin-bottom: 0px;margin-right: 0px;padding-left: 0px;padding-top: 0px;padding-bottom: 0px;">
-            <img src="~/Content/mytemplate/logosold/logo_transparent.png" width="60" height="60">
-        </ul>
-        <!-- <a class="navbar-brand" >MovieX</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button> -->
-
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Inbox</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Admin Panel</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Logout</button>
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" style="margin-left: 8px;">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-
-            </form>
-        </div>
-    </nav>
-
     <!-- Banner -->
     <!--
                     To use a video as your background, set data-video to the name of your video without
@@ -96,94 +65,13 @@
                         </div>
                     }
                 }
-
-                @*<div class="box">
-            <iframe width="352" height="352" src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen="true">
-            </iframe>
-            <a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="https://youtu.be/s6zR2T9vn2c" alt="" /></a>
-            <div class="inner">
-                <br /><br />
-                <h3>Nascetur nunc varius commodo</h3>
-                <p>
-                    Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi
-                    accumsan.
-                </p>
-                <a href="https://youtu.be/s6zR2T9vn2c" class="button fit" data-poptrox="youtube,800x400">Watch</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen="true">
-            </iframe>
-            <a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
-            <div class="inner">
-                <h3>Nascetur nunc varius commodo</h3>
-                <p>
-                    Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi
-                    accumsan.
-                </p>
-                <a href="https://youtu.be/s6zR2T9vn2c" class="button style2 fit"
-                   data-poptrox="youtube,800x400">Watch</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
-            <div class="inner">
-                <h3>Nascetur nunc varius commodo</h3>
-                <p>
-                    Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi
-                    accumsan.
-                </p>
-                <a href="https://youtu.be/s6zR2T9vn2c" class="button style3 fit"
-                   data-poptrox="youtube,800x400">Watch</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
-            <div class="inner">
-                <h3>Nascetur nunc varius commodo</h3>
-                <p>
-                    Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi
-                    accumsan.
-                </p>
-                <a href="https://youtu.be/s6zR2T9vn2c" class="button style2 fit"
-                   data-poptrox="youtube,800x400">Watch</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
-            <div class="inner">
-                <h3>Nascetur nunc varius commodo</h3>
-                <p>
-                    Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi
-                    accumsan.
-                </p>
-                <a href="https://youtu.be/s6zR2T9vn2c" class="button style3 fit"
-                   data-poptrox="youtube,800x400">Watch</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
-            <div class="inner">
-                <h3>Nascetur nunc varius commodo</h3>
-                <p>
-                    Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi
-                    accumsan.
-                </p>
-                <a href="https://youtu.be/s6zR2T9vn2c" class="button fit" data-poptrox="youtube,800x400">Watch</a>
-            </div>
-        </div>*@
-
             </div>
 
         </div>
     </div>
     @Html.ActionLink("Checkout", "PaymentWithPaypal", "Users")
-    @Convert.ToDecimal("5.00")
+    <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+    <script>paypal.Buttons().render('body');</script>
     <!-- Footer -->
     <footer id="footer">
         <div class="inner">
@@ -201,9 +89,8 @@
                 <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
                 <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
             </ul>
-            <p class="copyright">
-                &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>. Videos: <a href="http://coverr.co/">Coverr</a>.
-            </p>
+            <hr />
+            <p>&copy; @DateTime.Now.Year - MovieX Team Project</p>
         </div>
     </footer>
 

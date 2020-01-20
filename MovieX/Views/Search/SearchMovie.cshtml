@@ -1,0 +1,29 @@
+﻿@model IEnumerable<MovieX.Models.Movie>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Search results";
+}
+
+    <body>
+        @if (Model.Count() == 0)
+        {
+            <span>no items found</span>
+        }
+        else
+        {
+            foreach (var movie in Model)
+            {
+                <div class="box">
+                    <a href="/home/movie/@movie.Id" class="image fit" style="pointer-events:none"><img src="~/Image/@Url.Content(movie.Thumbnail)" width="450" height="600" /></a>
+                    <div class="inner">
+                        <h3>@Html.Raw(movie.Title)<span style="font-size:0.9em"> ( @Html.Raw(movie.Genre) )</span></h3>
+                        <div style="height:150px">
+                            @Html.Raw(movie.Description)
+                        </div>
+                        <a href="@Url.Content(movie.RootToDb)" class="button style3 fit"
+                           data-poptrox="iframe,800x400">Watch</a>
+                    </div>
+                </div>
+            }
+        }
+    </body>

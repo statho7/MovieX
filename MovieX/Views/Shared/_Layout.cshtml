@@ -3,42 +3,49 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>MovieX Homepage</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/content/mytemplate/assets/css/main.css" />
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <link rel="icon" type="image/png" href="~/Content/mytemplate/logosold/favicon.png">
+        <ul class="navbar-brand" style="margin-bottom: 0px;margin-right: 0px;padding-left: 0px;padding-top: 0px;padding-bottom: 0px;">
+            <img src="~/Content/mytemplate/logosold/logo_transparent.png" width="60" height="60">
+        </ul>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Inbox</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Admin Panel</a>
+                </li>
+            </ul>
+            @Html.Partial("_SearchMoviePartial")
+            @Html.Partial("_LoginPartial")
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    </nav>
+    @RenderBody()
+
+    
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <!-- Scripts -->
+    <script src="~/content/mytemplate/assets/js/jquery.min.js"></script>
+    <script src="~/content/mytemplate/assets/js/jquery.scrolly.min.js"></script>
+    <script src="~/content/mytemplate/assets/js/jquery.poptrox.min.js"></script>
+    <script src="~/content/mytemplate/assets/js/skel.min.js"></script>
+    <script src="~/content/mytemplate/assets/js/util.js"></script>
+    <script src="~/content/mytemplate/assets/js/main.js"></script>
 </body>
 </html>

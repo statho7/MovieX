@@ -12,6 +12,7 @@ using MovieX.ViewModels;
 
 namespace MovieX.Areas.Admin.Controllers
 {
+    //[Authorize(Roles = "Admin")]
     public class MoviesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

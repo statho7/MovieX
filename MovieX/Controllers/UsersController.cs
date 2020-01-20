@@ -115,7 +115,7 @@ namespace MovieX.Controllers
             var amount = new Amount()
             {
                 currency = "EUR",
-                total = (Convert.ToDecimal(details.tax,new CultureInfo("en-US")) + Convert.ToDecimal(details.shipping, new CultureInfo("en-US")) + Convert.ToDecimal(details.subtotal, new CultureInfo("en-US"))).ToString("0.00"),//tax+shipping+subtotal
+                total = (Convert.ToDecimal(details.tax,new CultureInfo("en-US")) + Convert.ToDecimal(details.shipping, new CultureInfo("en-US")) + Convert.ToDecimal(details.subtotal, new CultureInfo("en-US"))).ToString("0.00",new CultureInfo("en-US")),//tax+shipping+subtotal
                 details = details
             };
 
@@ -179,13 +179,14 @@ namespace MovieX.Controllers
                             paypalRedirectUrl = link.href;
                         }
                     }
+                    Session.Add(guid, createdPayment.id);
                     return Redirect(paypalRedirectUrl);
                 }
                 else
                 {
                     //This one will be executed when we have received all payment params from previous call
                     var guid = Request.Params["guid"];
-                    var executePayment = ExecutePayment(apiContext, payerId , guid as string /*, Session[guid] as string*/);
+                    var executePayment = ExecutePayment(apiContext, payerId /*, guid as string*/ , Session[guid] as string);
                     if (executePayment.state.ToLower() != "approved")
                     {
                         return View("Failure");
