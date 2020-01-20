@@ -49,14 +49,14 @@ namespace MovieX.Models
         [Required]
         public Gender Gender { get; set; }
 
-        [Required]
-        public Genre FirstChoice { get; set; }
+        //[Required]
+        //public Genre FirstChoice { get; set; }
 
-        [Required]
-        public Genre SecondChoice { get; set; }
+        //[Required]
+        //public Genre SecondChoice { get; set; }
 
-        [Required]
-        public Genre ThirdChoice { get; set; }
+        //[Required]
+        //public Genre ThirdChoice { get; set; }
 
         //isws me tin dimiourgia na xreiazetai na tou ftiaxnoume kai tin lista pou tha prosthetei tainies.
         public List<Movie> MoviesList = new List<Movie>();

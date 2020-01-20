@@ -52,9 +52,9 @@ namespace MovieX.Controllers
             user.FirstName = appuser.FirstName;
             user.LastName = appuser.LastName;
             user.Gender = appuser.Gender;
-            user.FirstChoice = appuser.FirstChoice;
-            user.SecondChoice = appuser.SecondChoice;
-            user.ThirdChoice = appuser.ThirdChoice;
+            //user.FirstChoice = appuser.FirstChoice;
+            //user.SecondChoice = appuser.SecondChoice;
+            //user.ThirdChoice = appuser.ThirdChoice;
             user.Email = appuser.Email;
 
             db.SaveChanges();

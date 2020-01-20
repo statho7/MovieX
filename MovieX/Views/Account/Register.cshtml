@@ -2,29 +2,7 @@
 @{
     ViewBag.Title = "Register";
 }
-<style>
-    button {
-        background-color: #4CAF50; /* Green */
-        border: none;
-        color: white;
-        padding: 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 12px;
-    }
 
-    #plus {
-        visibility: visible;
-    }
-
-    #minus {
-        visibility: hidden;
-    }
-</style>
 
 <h2>@ViewBag.Title.</h2>
 
@@ -79,7 +57,7 @@
         @Html.EnumDropDownListFor(x => x.Gender, "Select My Type", new { @class = "form-control" })
 
     </div>
-    <div class="form-group">
+    @*<div class="form-group">
         @Html.LabelFor(m => m.FirstChoice, new { @class = "col-md-2 control-label" })
         @Html.EnumDropDownListFor(x => x.FirstChoice, "Select My Type", new { @class = "form-control" })
     </div>
@@ -90,38 +68,19 @@
     <div class="form-group">
         @Html.LabelFor(m => m.ThirdChoice, new { @class = "col-md-2 control-label" })
         @Html.EnumDropDownListFor(x => x.ThirdChoice, "Select My Type", new { @class = "form-control" })
-    </div>
+    </div>*@
     @*<div class="form-group">
             @Html.LabelFor(m => m.CardNumber, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
                 @Html.TextBoxFor(m => m.CardNumber, new { @class = "form-control" })
             </div>
         </div>*@
-    <button type="button" id="myBtn" aria-checked="false"><span id="plus">+</span><span id="minus">-</span>Action</button>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-default" value="Register" />
         </div>
     </div>
 }
-<script>
-  document.getElementById("myBtn").onclick = function () { checkFunction() };
-
-  function checkFunction() {
-    if (document.getElementById("myBtn").getAttribute("aria-checked") == "false")
-    {
-      document.getElementById("myBtn").setAttribute("aria-checked", true);
-      document.getElementById("plus").style.visibility = "hidden"
-      document.getElementById("minus").style.visibility = "visible"
-    }
-    else {
-      document.getElementById("myBtn").setAttribute("aria-checked", false);
-      document.getElementById("plus").style.visibility = "visible"
-      document.getElementById("minus").style.visibility = "hidden"
-    }
-}
-</script>
-
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

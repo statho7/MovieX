@@ -105,17 +105,17 @@ namespace MovieX.Models
         [Display(Name = "Gender")]
         public Gender Gender { get; set; }
 
-        [Required]
-        [Display(Name = "First choice")]
-        public Genre FirstChoice { get; set; }
+        //[Required]
+        //[Display(Name = "First choice")]
+        //public Genre FirstChoice { get; set; }
 
-        [Required]
-        [Display(Name = "Second choice")]
-        public Genre SecondChoice { get; set; }
+        //[Required]
+        //[Display(Name = "Second choice")]
+        //public Genre SecondChoice { get; set; }
 
-        [Required]
-        [Display(Name = "Third choice")]
-        public Genre ThirdChoice { get; set; }
+        //[Required]
+        //[Display(Name = "Third choice")]
+        //public Genre ThirdChoice { get; set; }
 
         //[Display(Name = "Card Number")]
         //public string CardNumber { get; set; }
