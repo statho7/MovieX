@@ -14,7 +14,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <link rel="icon" type="image/png" href="~/Content/mytemplate/logosold/favicon.png">
         <ul class="navbar-brand" style="margin-bottom: 0px;margin-right: 0px;padding-left: 0px;padding-top: 0px;padding-bottom: 0px;">
-            <a href="/Home/Index"><img src="~/Content/mytemplate/logosold/logo_transparent.png" width="60" height="60"></a>
+            <a href="/Home/Index"><img src="~/Content/mytemplate/logosold/logo_transparent.png" width="60" height="60" style="margin-top:-5px;"></a>
         </ul>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -23,8 +23,8 @@
                     <a class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    @*<a class="nav-link" href="">Inbox</a>*@
-                    @Html.ActionLink("Chat","Chat","Home")
+                    <a class="nav-link" href="/Home/Chat">Chat</a>
+                    @*@Html.ActionLink("Chat","Chat","Home")*@
                 </li>
                 @if (User.IsInRole("Admin"))
                 {
