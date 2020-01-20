@@ -39,11 +39,11 @@
         </div>
     </section>
     
-            @if (Model.UserPaid)
+            @if (Model.UserPaid || User.IsInRole("Admin"))
             {
                 <div id="main">
                     <section style="margin-bottom:50px;justify-content: center;display: flex;">
-                        <select id="filterMovies" style="background-color:#202024">
+                        <select id="filterMovies" style="background-color:white;">
                             <option value="-1">All</option>
                             <option value="0">Action</option>
                             <option value="1">Anime</option>
@@ -83,7 +83,7 @@
                                         <div class="inner">
                                             <h3>
                                                 @Html.Raw(movie.Title)<br />
-                                                <span style="font-size:0.9em">4
+                                                <span style="font-size:0.9em">
                                                     (
                                                     @switch (movie.Genre)
                                                     {
