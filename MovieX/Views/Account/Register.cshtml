@@ -50,38 +50,41 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Country, new { @class = "col-md-2 control-label" })
-        @Html.EnumDropDownListFor(model => model.Country)
+        <div class="col-md-10">
+            @Html.EnumDropDownListFor(model => model.Country)
+        </div>
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label" })
-        @Html.EnumDropDownListFor(x => x.Gender, "Select My Type", new { @class = "form-control" })
-
-    </div>
-    @*<div class="form-group">
-        @Html.LabelFor(m => m.FirstChoice, new { @class = "col-md-2 control-label" })
-        @Html.EnumDropDownListFor(x => x.FirstChoice, "Select My Type", new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.SecondChoice, new { @class = "col-md-2 control-label" })
-        @Html.EnumDropDownListFor(x => x.SecondChoice, "Select My Type", new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ThirdChoice, new { @class = "col-md-2 control-label" })
-        @Html.EnumDropDownListFor(x => x.ThirdChoice, "Select My Type", new { @class = "form-control" })
-    </div>*@
-    @*<div class="form-group">
+        <div class="col-md-10">
+            @Html.EnumDropDownListFor(x => x.Gender, "Select My Type", new { @class = "form-control" })
+        </div>
+        </div>
+        @*<div class="form-group">
+            @Html.LabelFor(m => m.FirstChoice, new { @class = "col-md-2 control-label" })
+            @Html.EnumDropDownListFor(x => x.FirstChoice, "Select My Type", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.SecondChoice, new { @class = "col-md-2 control-label" })
+            @Html.EnumDropDownListFor(x => x.SecondChoice, "Select My Type", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ThirdChoice, new { @class = "col-md-2 control-label" })
+            @Html.EnumDropDownListFor(x => x.ThirdChoice, "Select My Type", new { @class = "form-control" })
+        </div>*@
+        @*<div class="form-group">
             @Html.LabelFor(m => m.CardNumber, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
                 @Html.TextBoxFor(m => m.CardNumber, new { @class = "form-control" })
             </div>
         </div>*@
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Register" />
+            </div>
         </div>
-    </div>
-}
+        }
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

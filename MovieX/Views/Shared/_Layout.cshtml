@@ -20,16 +20,16 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/Users/Index">Profile <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/Users/Index" style="color:white;">Profile <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"  data-toggle="modal" data-target="#myModal">Chat</a>
+                    <a class="nav-link"  data-toggle="modal" data-target="#myModal" style="cursor:pointer; color:white;">Chat</a>
                     @*@Html.ActionLink("Chat","Chat","Home")*@
                 </li>
                 @if (User.IsInRole("Admin"))
                 {
                     <li class="nav-item">
-                        <a class="nav-link" href="/Admin/Dashboard/Index" tabindex="-1" aria-disabled="false">Admin Panel</a>
+                        <a class="nav-link" href="/Admin/Dashboard/Index" tabindex="-1" aria-disabled="false" style="color:white;">Admin Panel</a>
                     </li>
                 }
             </ul>
