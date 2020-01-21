@@ -5,12 +5,12 @@
 }
 
     <body>
-        @if (Model.Count() == 0)
+        @if (Model == null)
         {
             <span>no items found</span>
         }
         else
-        {            
+        {
             <div id="main">
                 <div class="inner">
                     <div class="thumbnails">
@@ -64,6 +64,6 @@
                         }
                     </div>
                 </div>
-            </div>            
+            </div>
         }
     </body>

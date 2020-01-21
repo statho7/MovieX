@@ -1,4 +1,16 @@
 ﻿@using Microsoft.AspNet.Identity
+@using MovieX.Models
+@{
+    int ispaid = 0;
+    if (User.Identity.IsAuthenticated)
+    {
+        using (var db = new ApplicationDbContext())
+        {
+            var userId = User.Identity.GetUserId();
+            ispaid = db.Users.SingleOrDefault(i => i.Id == userId).IsPaid;
+        }
+    }
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -98,9 +110,9 @@
     <script src="~/content/mytemplate/assets/js/main.js"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-        <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
-        <script src="~/signalr/hubs"></script>
-        <script>
+    <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script>
         $(function () {
             // Reference the auto-generated proxy for the hub.
             var chat = $.connection.chatHub;
@@ -129,31 +141,25 @@
             var encodedValue = $('<div />').text(value).html();
             return encodedValue;
         }
-        </script>
+    </script>
     <script>
         $(document).ready(function () {
-                $('.form-inline my-2 my-lg-0 px-2').change(function () {
-                        const searchInput = $('#search-input');
-                        const searchButton = $('#search-button');
-                        let paid = false;
-                        if(@User.Identity.IsAuthenticated)
-                        {
-                            @*var userId = @User.Identity.GetUserId().ToString();
-                            paid = @UserManager.Users.SingleOrDefault(i => i.Id == userId).IsPaid == 1;*@
-                            if (paid == true) {
-                                $(searchInput).show();
-                                $(searchButton).show();
-                            }
-                            else
-                            {
-                                $(searchInput).hide();
-                                $(searchButton).hide();
-                            } 
-                        }                                           
+        //        $('.form-inline.my-2.my-lg-0.px-2')(function () {
+                    const searchInput = $('#search-input');
+                    const searchButton = $('#search-button');
+                    if (@ispaid == 1) {
+                        $(searchInput).show();
+                        $(searchButton).show();
                     }
-                });
-            })
+                    else
+                    {
+                        $(searchInput).hide();
+                        $(searchButton).hide();
+                    }
+                //});
+            });
     </script>
+
     @RenderSection("scripts", required: false)
 </body>
 </html>
