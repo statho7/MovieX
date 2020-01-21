@@ -14,6 +14,7 @@ namespace MovieX.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        public string UserID { get; set; }
         [Required]
         [MaxLength(255)]
         public string FirstName { get; set; }

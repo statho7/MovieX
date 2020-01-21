@@ -12,6 +12,7 @@ using Microsoft.AspNet.Identity;
 
 namespace MovieX.Controllers
 {
+    [Authorize]
     public class UsersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -20,7 +21,16 @@ namespace MovieX.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            string userId = "";
+
+            if (User.Identity.IsAuthenticated)
+            {
+                userId = User.Identity.GetUserId().ToString();
+            }
+
+            var user = db.Users.Find(userId);
+
+            return View(user);
         }
 
         public ActionResult Delete(string id)

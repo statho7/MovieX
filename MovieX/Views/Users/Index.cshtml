@@ -1,4 +1,5 @@
-﻿@model IEnumerable<MovieX.Models.ApplicationUser>
+﻿@using Microsoft.AspNet.Identity
+@model MovieX.Models.ApplicationUser
 
 @{
     ViewBag.Title = "Index";
@@ -35,35 +36,34 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
+            @Html.DisplayFor(modelItem => modelItem.FirstName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LastName)
+            @Html.DisplayFor(modelItem => modelItem.LastName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Password)
+            @Html.DisplayFor(modelItem => modelItem.Password)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.BirthDate)
+            @Html.DisplayFor(modelItem => modelItem.BirthDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Country)
+            @Html.DisplayFor(modelItem => modelItem.Country)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Gender)
+            @Html.DisplayFor(modelItem => modelItem.Gender)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Email)
+            @Html.DisplayFor(modelItem => modelItem.Email)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = User.Identity.GetUserId().ToString() }) |
+            @Html.ActionLink("Details", "Details", new { id = User.Identity.GetUserId().ToString() }) |
+            @Html.ActionLink("Delete", "Delete", new { id = User.Identity.GetUserId().ToString() })
         </td>
     </tr>
-}
 
 </table>

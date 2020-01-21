@@ -177,6 +177,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminUsersController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\MoviesController.cs" />
     <Compile Include="ChatHub.cs" />
@@ -203,6 +204,10 @@
     <Compile Include="Migrations\202001201144413_Seed and ApplicationUser changes.cs" />
     <Compile Include="Migrations\202001201144413_Seed and ApplicationUser changes.Designer.cs">
       <DependentUpon>202001201144413_Seed and ApplicationUser changes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001210827087_Creating User Profile.cs" />
+    <Compile Include="Migrations\202001210827087_Creating User Profile.Designer.cs">
+      <DependentUpon>202001210827087_Creating User Profile.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -423,6 +428,9 @@
     <Content Include="Areas\Admin\Views\Movies\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Movies\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Movies\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminUsers\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminUsers\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminUsers\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -516,6 +524,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001201144413_Seed and ApplicationUser changes.resx">
       <DependentUpon>202001201144413_Seed and ApplicationUser changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001210827087_Creating User Profile.resx">
+      <DependentUpon>202001210827087_Creating User Profile.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
