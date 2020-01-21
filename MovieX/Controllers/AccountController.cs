@@ -154,9 +154,9 @@ namespace MovieX.Controllers
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email,FirstName=model.FirstName,LastName=model.LastName,Password=model.Password,
                     BirthDate = model.BirthDate,Gender =model.Gender,Country=model.Country/*,FirstChoice=model.FirstChoice,SecondChoice=model.SecondChoice,ThirdChoice=model.ThirdChoice*/};
                 var result = await UserManager.CreateAsync(user, model.Password);
-                UserManager.AddToRole(user.Id, "User"); 
                 if (result.Succeeded)
                 {
+                    UserManager.AddToRole(user.Id, "User");
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
@@ -171,7 +171,7 @@ namespace MovieX.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return View("UserExists");
         }
 
         //

@@ -22,10 +22,12 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/Users/Index" style="color:white;">Profile <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link"  data-toggle="modal" data-target="#myModal" style="cursor:pointer; color:white;">Chat</a>
-                    @*@Html.ActionLink("Chat","Chat","Home")*@
-                </li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="modal" data-target="#myModal" style="cursor:pointer; color:white;">Chat</a>
+                    </li>
+                }
                 @if (User.IsInRole("Admin"))
                 {
                     <li class="nav-item">
@@ -33,7 +35,10 @@
                     </li>
                 }
             </ul>
-            @Html.Partial("_SearchMoviePartial")
+            @if (User.Identity.IsAuthenticated)
+            {
+                @Html.Partial("_SearchMoviePartial")
+            }
             @Html.Partial("_LoginPartial")
         </div>
     </nav>

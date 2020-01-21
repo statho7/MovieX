@@ -493,6 +493,7 @@
     <Content Include="Views\Users\Failure.cshtml" />
     <Content Include="Views\Home\_partialexample.cshtml" />
     <Content Include="Views\Search\SearchMovie.cshtml" />
+    <Content Include="Views\Account\UserExists.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
