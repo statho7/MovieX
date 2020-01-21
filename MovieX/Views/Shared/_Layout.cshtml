@@ -1,4 +1,4 @@
-﻿@model MovieX.ViewModels.HomeViewModel
+﻿@using Microsoft.AspNet.Identity
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,13 +36,53 @@
                     </li>
                 }
             </ul>
-            @if (User.Identity.IsAuthenticated && Model.UserPaid)
+            @if (User.Identity.IsAuthenticated)
             {
                 @Html.Partial("_SearchMoviePartial")
             }
             @Html.Partial("_LoginPartial")
         </div>
     </nav>
+    <div class="container">
+        <!-- Button to Open the Modal -->
+        @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                Πάτησε εδώ για να δεις τα αξιοθέατα του νησιού
+            </button>*@
+
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog" style="max-width:600px;">
+                <div class="modal-content" style="background-color:#202024;color:white;">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Chat with a Random Buddy</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="container chat">
+                            <div class="form-inline my-2 my-lg-0 px-2" style="margin-left:70px;">
+                                <input type="text" id="message" />
+                                <input type="submit" id="sendmessage" value="Send" />
+                            </div>
+                            <input type="hidden" id="displayname" />
+                            <ul id="discussion" style="margin-left:70px;">
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
 
     @RenderBody()
 
@@ -58,6 +98,62 @@
     <script src="~/content/mytemplate/assets/js/main.js"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+        <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
+        <script src="~/signalr/hubs"></script>
+        <script>
+        $(function () {
+            // Reference the auto-generated proxy for the hub.
+            var chat = $.connection.chatHub;
+            // Create a function that the hub can call back to display messages.
+            chat.client.addNewMessageToPage = function (name, message) {
+                // Add the message to the page.
+                $('#discussion').append('<li><strong>' + htmlEncode(name)
+                    + '</strong>: ' + htmlEncode(message) + '</li>');
+            };
+            // Get the user name and store it to prepend to messages.
+            $('#displayname').val('@User.Identity.Name');
+            // Set initial focus to message input box.
+            $('#message').focus();
+            // Start the connection.
+            $.connection.hub.start().done(function () {
+                $('#sendmessage').click(function () {
+                    // Call the Send method on the hub.
+                    chat.server.send($('#displayname').val(), $('#message').val());
+                    // Clear text box and reset focus for next comment.
+                    $('#message').val('').focus();
+                });
+            });
+        });
+        // This optional function html-encodes messages for display in the page.
+        function htmlEncode(value) {
+            var encodedValue = $('<div />').text(value).html();
+            return encodedValue;
+        }
+        </script>
+    <script>
+        $(document).ready(function () {
+                $('.form-inline my-2 my-lg-0 px-2').change(function () {
+                        const searchInput = $('#search-input');
+                        const searchButton = $('#search-button');
+                        let paid = false;
+                        if(@User.Identity.IsAuthenticated)
+                        {
+                            @*var userId = @User.Identity.GetUserId().ToString();
+                            paid = @UserManager.Users.SingleOrDefault(i => i.Id == userId).IsPaid == 1;*@
+                            if (paid == true) {
+                                $(searchInput).show();
+                                $(searchButton).show();
+                            }
+                            else
+                            {
+                                $(searchInput).hide();
+                                $(searchButton).hide();
+                            } 
+                        }                                           
+                    }
+                });
+            })
+    </script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
