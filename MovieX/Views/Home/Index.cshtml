@@ -19,6 +19,45 @@
 
 </head>
 <body>
+    <div class="container">
+        <!-- Button to Open the Modal -->
+        @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            Πάτησε εδώ για να δεις τα αξιοθέατα του νησιού
+        </button>*@
+
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog" style="max-width:600px;">
+                <div class="modal-content" style="background-color:#202024;color:white;">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Chat about Moviezzz</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="container chat">
+                            <input type="text" id="message" />
+                            <input type="submit" id="sendmessage" value="Send" />
+                            <input type="hidden" id="displayname" />
+                            <ul id="discussion">
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     <!-- Banner -->
     <!--
                     To use a video as your background, set data-video to the name of your video without
@@ -38,96 +77,96 @@
             <a href="#main" class="more">Learn More</a>
         </div>
     </section>
-    
-            @if (Model.UserPaid || User.IsInRole("Admin"))
-            {
-                <div id="main">
-                    <section style="margin-bottom:50px;justify-content: center;display: flex;">
-                        <select id="filterMovies" style="background-color:white;">
-                            <option value="-1">All</option>
-                            <option value="0">Action</option>
-                            <option value="1">Anime</option>
-                            <option value="2">Award Winning</option>
-                            <option value="3">Children & Family</option>
-                            <option value="4">Classics</option>
-                            <option value="5">Comedies</option>
-                            <option value="6">Crime</option>
-                            <option value="7">Documentaries</option>
-                            <option value="8">Dramas</option>
-                            <option value="9">European Movies</option>
-                            <option value="10">Holidays</option>
-                            <option value="11">Horror</option>
-                            <option value="12">Independent</option>
-                            <option value="13">Musicals</option>
-                            <option value="14">Romance</option>
-                            <option value="15">Sci-Fi & Fantasy</option>
-                            <option value="16">Sports</option>
-                            <option value="17">Stand-Up Comedy</option>
-                            <option value="18">Thrillers</option>
-                        </select>
-                    </section>
-                    <div class="inner">
 
-                        <!-- Boxes -->
-                        <div class="thumbnails">
-                            @if (Model.Movies == null)
-                            {
-                                <span>no items found</span>
-                            }
-                            else
-                            {
-                                foreach (var movie in Model.Movies)
-                                {
-                                    <div class="box" data-genre="@((int)movie.Genre)">
-                                        <a href="/home/movie/@movie.Id" class="image fit" style="pointer-events:none"><img src="~/Image/@Url.Content(movie.Thumbnail)" width="450" height="600" /></a>
-                                        <div class="inner">
-                                            <h3>
-                                                @Html.Raw(movie.Title)<br />
-                                                <span style="font-size:0.9em">
-                                                    (
-                                                    @switch (movie.Genre)
-                                                    {
-                                                        case MovieX.Models.Enums.Genre.AwardWinning:
-                                                            @Html.Raw("Award Winning");
-                                                            break;
-                                                        case MovieX.Models.Enums.Genre.Children_and_Family:
-                                                            @Html.Raw("Children & Family");
-                                                            break;
-                                                        case MovieX.Models.Enums.Genre.EuropeanMovies:
-                                                            @Html.Raw("European Movies");
-                                                            break;
-                                                        case MovieX.Models.Enums.Genre.Sci_Fi_and_Fantasy:
-                                                            @Html.Raw("Sci-Fi & Fantasy");
-                                                            break;
-                                                        case MovieX.Models.Enums.Genre.Stand_Up_Comedy:
-                                                            @Html.Raw("Stand-Up Comedy");
-                                                            break;
-                                                        default:
-                                                            @Html.Raw(movie.Genre)
-                                                            break;
-                                                    }
-                                                    )
-                                                </span>
-                                            </h3>
-                                            <div style="height:150px">
-                                                @Html.Raw(movie.Description)
-                                            </div>
-                                            <a href="@Url.Content(movie.RootToDb)" class="button style3 fit"
-                                               data-poptrox="iframe,800x400">Watch</a>
-                                        </div>
+    @if (Model.UserPaid || User.IsInRole("Admin"))
+    {
+        <div id="main">
+            <section style="margin-bottom:50px;justify-content: center;display: flex;">
+                <select id="filterMovies" style="background-color:white;">
+                    <option value="-1">All</option>
+                    <option value="0">Action</option>
+                    <option value="1">Anime</option>
+                    <option value="2">Award Winning</option>
+                    <option value="3">Children & Family</option>
+                    <option value="4">Classics</option>
+                    <option value="5">Comedies</option>
+                    <option value="6">Crime</option>
+                    <option value="7">Documentaries</option>
+                    <option value="8">Dramas</option>
+                    <option value="9">European Movies</option>
+                    <option value="10">Holidays</option>
+                    <option value="11">Horror</option>
+                    <option value="12">Independent</option>
+                    <option value="13">Musicals</option>
+                    <option value="14">Romance</option>
+                    <option value="15">Sci-Fi & Fantasy</option>
+                    <option value="16">Sports</option>
+                    <option value="17">Stand-Up Comedy</option>
+                    <option value="18">Thrillers</option>
+                </select>
+            </section>
+            <div class="inner">
+
+                <!-- Boxes -->
+                <div class="thumbnails">
+                    @if (Model.Movies == null)
+                    {
+                        <span>no items found</span>
+                    }
+                    else
+                    {
+                        foreach (var movie in Model.Movies)
+                        {
+                            <div class="box" data-genre="@((int)movie.Genre)">
+                                <a href="/home/movie/@movie.Id" class="image fit" style="pointer-events:none"><img src="~/Image/@Url.Content(movie.Thumbnail)" width="450" height="600" /></a>
+                                <div class="inner">
+                                    <h3>
+                                        @Html.Raw(movie.Title)<br />
+                                        <span style="font-size:0.9em">
+                                            (
+                                            @switch (movie.Genre)
+                                            {
+                                                case MovieX.Models.Enums.Genre.AwardWinning:
+                                                    @Html.Raw("Award Winning");
+                                                    break;
+                                                case MovieX.Models.Enums.Genre.Children_and_Family:
+                                                    @Html.Raw("Children & Family");
+                                                    break;
+                                                case MovieX.Models.Enums.Genre.EuropeanMovies:
+                                                    @Html.Raw("European Movies");
+                                                    break;
+                                                case MovieX.Models.Enums.Genre.Sci_Fi_and_Fantasy:
+                                                    @Html.Raw("Sci-Fi & Fantasy");
+                                                    break;
+                                                case MovieX.Models.Enums.Genre.Stand_Up_Comedy:
+                                                    @Html.Raw("Stand-Up Comedy");
+                                                    break;
+                                                default:
+                                                    @Html.Raw(movie.Genre)
+                                                    break;
+                                            }
+                                            )
+                                        </span>
+                                    </h3>
+                                    <div style="height:150px">
+                                        @Html.Raw(movie.Description)
                                     </div>
-                                }
-                            }
-                        </div>
-                    </div>
+                                    <a href="@Url.Content(movie.RootToDb)" class="button style3 fit"
+                                       data-poptrox="iframe,800x400">Watch</a>
+                                </div>
+                            </div>
+                        }
+                    }
                 </div>
-            }
+            </div>
+        </div>
+    }
 
     <!-- Main -->
     @Html.ActionLink("Checkout", "PaymentWithPaypal", "Users")
 
     @*<script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
-    <script>paypal.Buttons().render('body');</script>*@
+        <script>paypal.Buttons().render('body');</script>*@
     <!-- Footer -->
     <footer id="footer">
         <div class="inner">
@@ -159,7 +198,43 @@
     <script src="~/content/mytemplate/assets/js/main.js"></script>
 
     @section scripts{
-        <script>
+        
+    <!--Script references. -->
+    <!--The jQuery library is required and is referenced by default in _Layout.cshtml. -->
+    <!--Reference the SignalR library. -->
+    <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
+    <!--Reference the autogenerated SignalR hub script. -->
+    <script src="~/signalr/hubs"></script>
+    <!--SignalR script to update the chat page and send messages.-->
+    <script>
+        $(function () {
+            // Reference the auto-generated proxy for the hub.
+            var chat = $.connection.chatHub;
+            // Create a function that the hub can call back to display messages.
+            chat.client.addNewMessageToPage = function (name, message) {
+                // Add the message to the page.
+                $('#discussion').append('<li><strong>' + htmlEncode(name)
+                    + '</strong>: ' + htmlEncode(message) + '</li>');
+            };
+            // Get the user name and store it to prepend to messages.
+            $('#displayname').val('@User.Identity.Name');
+            // Set initial focus to message input box.
+            $('#message').focus();
+            // Start the connection.
+            $.connection.hub.start().done(function () {
+                $('#sendmessage').click(function () {
+                    // Call the Send method on the hub.
+                    chat.server.send($('#displayname').val(), $('#message').val());
+                    // Clear text box and reset focus for next comment.
+                    $('#message').val('').focus();
+                });
+            });
+        });
+        // This optional function html-encodes messages for display in the page.
+        function htmlEncode(value) {
+            var encodedValue = $('<div />').text(value).html();
+            return encodedValue;
+        }
             $(document).ready(function () {
                 $('#filterMovies').change(function () {
                     const value = $(this).val();
