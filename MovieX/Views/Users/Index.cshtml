@@ -2,15 +2,14 @@
 @model MovieX.Models.ApplicationUser
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "My Profile";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 style="text-align:center;">My profile</h2>
 
-<p>
-    @Html.ActionLink("Create New Account", "Register" , "Account")
-</p>
+@Html.ActionLink("Checkout", "PaymentWithPaypal", "Users")
+
 <table class="table">
     <tr>
         <th>
@@ -19,9 +18,9 @@
         <th>
             @Html.DisplayNameFor(model => model.LastName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Password)
-        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>*@
         <th>
             @Html.DisplayNameFor(model => model.BirthDate)
         </th>
@@ -45,9 +44,9 @@
         <td>
             @Html.DisplayFor(modelItem => modelItem.LastName)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => modelItem.Password)
-        </td>
+        @*<td>
+                @Html.DisplayFor(modelItem => modelItem.Password)
+            </td>*@
         <td>
             @Html.DisplayFor(modelItem => modelItem.BirthDate)
         </td>
@@ -62,8 +61,8 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = User.Identity.GetUserId().ToString() }) |
-            @Html.ActionLink("Details", "Details", new { id = User.Identity.GetUserId().ToString() }) |
-            @Html.ActionLink("Delete", "Delete", new { id = User.Identity.GetUserId().ToString() })
+            @Html.ActionLink("Details", "Details", new { id = User.Identity.GetUserId().ToString() })
+            @*@Html.ActionLink("Delete", "Delete", new { id = User.Identity.GetUserId().ToString() })*@
         </td>
     </tr>
 
