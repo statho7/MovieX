@@ -8,7 +8,18 @@
 
 <h2 style="text-align:center;">My profile</h2>
 
-@Html.ActionLink("Checkout", "PaymentWithPaypal", "Users")
+<br />
+<br />
+
+
+Proceed your payment:
+<br />
+<br />
+@Html.ActionLink("Payment with paypal", "PaymentWithPaypal", "Users", new { @class = "btn btn-warning" })
+
+<br />
+<br />
+<br />
 
 <table class="table">
     <tr>
@@ -61,7 +72,7 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = User.Identity.GetUserId().ToString() }) |
-            @Html.ActionLink("Details", "Details", new { id = User.Identity.GetUserId().ToString() })
+            @Html.ActionLink("Details", "Details", new { id = User.Identity.GetUserId().ToString() }) |
             @Html.ActionLink("Delete", "Delete", new { id = User.Identity.GetUserId().ToString() })
         </td>
     </tr>
