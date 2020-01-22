@@ -41,8 +41,8 @@
     @if (Model.UserPaid || User.IsInRole("Admin"))
     {
         <div id="main">
-            <section style="margin-bottom:50px;justify-content: center;display: flex;">
-                <select id="filterMovies" style="background-color:white;">
+            <section style="margin-bottom:50px;justify-content: center;display: flex; margin-right:20px;" id="filterMovies" >
+                <select id="filterMoviesGenre" style="background-color:white;">
                     <option value="-1">All</option>
                     <option value="0">Action</option>
                     <option value="1">Anime</option>
@@ -64,6 +64,12 @@
                     <option value="17">Stand-Up Comedy</option>
                     <option value="18">Thrillers</option>
                 </select>
+                <select id="filterMoviesDuration" style="background-color:white;margin-left:20px;">
+                    <option value="-1">All</option>
+                    <option value="0">-60mins</option>
+                    <option value="1">61-120 mins</option>
+                    <option value="2">121+mins</option>
+                </select>
             </section>
             <div class="inner">
 
@@ -77,7 +83,7 @@
                     {
                         foreach (var movie in Model.Movies)
                         {
-                            <div class="box" data-genre="@((int)movie.Genre)">
+                            <div class="box" data-genre="@((int)movie.Genre)" data-duration="@(movie.Duration)">
                                 <a href="/home/movie/@movie.Id" class="image fit" style="pointer-events:none"><img src="~/Image/@Url.Content(movie.Thumbnail)" width="450" height="600" /></a>
                                 <div class="inner">
                                     <h3>
@@ -156,25 +162,58 @@
 
     @section scripts{
     <script>
-            $(document).ready(function () {
-                $('#filterMovies').change(function () {
-                    const value = $(this).val();
-                    const divBoxes = $('.box');
-                    for (let i = 0; i < divBoxes.length; i++) {
-                        const genre = $(divBoxes[i]).data('genre');
-                        if (value == -1) {
-                            $(divBoxes[i]).show();
-                        } else {
-                            if (genre != value) {
-                                $(divBoxes[i]).hide();
-                            }
-                            else {
+        $(document).ready(function () {
+            function filters() {
+                const valueGenre = $('#filterMoviesGenre').val();
+                const valueDuration = $('#filterMoviesDuration').val();
+                const divBoxes = $('.box');
+                for (let i = 0; i < divBoxes.length; i++) {
+                    const genre = $(divBoxes[i]).data('genre');
+                    const duration = $(divBoxes[i]).data('duration');
+                    var checkDuration;
+                    if (duration < 61) {
+                        checkDuration = 0;
+                    }
+                    else if (duration < 121) {
+                        checkDuration = 1;
+                    } else {
+                        checkDuration = 2;
+                    }
+                    if (valueGenre == -1 && valueDuration == -1) {
+                        $(divBoxes[i]).show();
+                    }
+                    else {
+                        if (valueGenre == -1) {
+                            if (valueDuration == checkDuration) {
                                 $(divBoxes[i]).show();
                             }
+                            else {
+                                $(divBoxes[i]).hide();
+                            }
                         }
+                        else if (valueDuration == -1) {
+                            if (valueGenre == genre) {
+                                $(divBoxes[i]).show();
+                            }
+                            else {
+                                $(divBoxes[i]).hide();
+                            }
+                        }
+                        else {
+                            if (valueGenre == genre && valueDuration == checkDuration) {
+                                $(divBoxes[i]).show();
+                            }
+                            else {
+                                $(divBoxes[i]).hide();
+                            }
+                        }
+
                     }
-                });
-            })
+                }
+            }
+            $('#filterMoviesGenre').change(filters);
+            $('#filterMoviesDuration').change(filters);
+        })
         </script>
     }
 </body>
